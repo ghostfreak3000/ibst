@@ -1,7 +1,7 @@
 {
   "name": "ibst",
   "version": "0.0.0",
-  "description": "Modified binary search tree in which each node has a min key, a max key and a value",
+  "description": "Interval binary search tree",
   "main": "ibst.js",
   "scripts": {
     "test":"mocha mocha_test/"

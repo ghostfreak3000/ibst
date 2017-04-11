@@ -1,5 +1,4 @@
 var node = require("./lib/node");
-
 var ibst = function(opts){        
     this.root = null;        
     this.insert = function(opts){
@@ -33,11 +32,12 @@ var ibst = function(opts){
         var count = (test.match(/__count__/g) || []).length;
         return count;
     }
-    
+    this.search = function(query){
+        return this.root.search(query);
+    }
     if(opts){
         this.insert(opts);
     }
-
 }
 
 module.exports = ibst;
