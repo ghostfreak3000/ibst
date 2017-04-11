@@ -1,0 +1,27 @@
+{
+  "name": "ibst",
+  "version": "0.0.0",
+  "description": "Modified binary search tree in which each node has a min key, a max key and a value",
+  "main": "ibst.js",
+  "scripts": {
+    "test":"mocha mocha_test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghostfreak3000/ibst.git"
+  },
+  "keywords": [
+    "binarysearchtree",
+    "interval"
+  ],
+  "author": "Bishaka Samuel <sbishaka@gmail.com> (https://twitter.com/sbishaka)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghostfreak3000/ibst/issues"
+  },
+  "homepage": "https://github.com/ghostfreak3000/ibst#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
