@@ -1,11 +1,11 @@
 {
   "name": "ibst",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Interval binary search tree",
   "main": "ibst.js",
   "scripts": {
     "test": "mocha mocha_test/",
-    "test-ci":"istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require mocha_test/env --reporter spec --check-leaks mocha_test"
+    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require mocha_test/env --reporter spec --check-leaks mocha_test"
   },
   "repository": {
     "type": "git",
