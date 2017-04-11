@@ -4,7 +4,8 @@
   "description": "Interval binary search tree",
   "main": "ibst.js",
   "scripts": {
-    "test":"mocha mocha_test/"
+    "test": "mocha mocha_test/",
+    "test-ci":"istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require mocha_test/env --reporter spec --check-leaks mocha_test"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,9 @@
   "homepage": "https://github.com/ghostfreak3000/ibst#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "coveralls": "^2.13.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.3.0"
   }
 }
