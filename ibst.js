@@ -1,28 +1,28 @@
 var node = require("./lib/node");
-var ibst = function(opts){        
+var ibst = function(nodes){        
     this.root = null;        
-    this.insert = function(opts){
-        if(!opts){
+    this.insert = function(nodes){
+        if(!nodes){
             return {status:false};
         }
-        switch(opts.constructor){
+        switch(nodes.constructor){
             case Object:
-                if(Object.keys(opts).length === 0){
+                if(Object.keys(nodes).length === 0){
                     return {status:false};
                 }
                 if(this.root){
-                    return this.root.insert(opts);
+                    return this.root.insert(nodes);
                 }else{
-                    this.root = new node(opts);
+                    this.root = new node(nodes);
                     return {status:true};
                 }                  
             case Array:
-                if(opts.length === 0){
+                if(nodes.length === 0){
                     return {status:false};
                 }
                 var tree = this;
-                opts.map(function(opt){
-                    tree.insert(opt);
+                nodes.map(function(node){
+                    tree.insert(node);
                 });
                 return {status:true};                
         }        
@@ -35,8 +35,8 @@ var ibst = function(opts){
     this.search = function(query){
         return this.root.search(query);
     }
-    if(opts){
-        this.insert(opts);
+    if(nodes){
+        this.insert(nodes);
     }
 }
 
