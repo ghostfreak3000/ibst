@@ -2,35 +2,160 @@
 
 Interval binary search tree
 
+[![NPM Version](https://img.shields.io/npm/v/ibst.svg)](https://www.npmjs.com/package/ibst)
+[![Linux Build](https://img.shields.io/travis/ghostfreak3000/ibst/master.svg?label=linux)](https://travis-ci.org/ghostfreak3000/ibst)
+[![Windows Build](https://img.shields.io/appveyor/ci/ghostfreak3000/ibst/master.svg?label=windows)](https://ci.appveyor.com/project/ghostfreak3000/ibst)
+
 ``` js
-var ibst = require("ibst");
+    var ibst = require("ibst");
 
-var grades = new ibst([
-                        {min:80,max:100,value:"A"},
-                        {min:75,max:79.9,value:"B+"},                       
-                        {min:70,max:74.9,value:"B"}]);  
+    var grades = new ibst([
+                            {min:80,max:100,value:"A"},
+                            {min:75,max:79.9,value:"B+"},
+                            {min:70,max:74.9,value:"B"}]);  
 
-console.log(grades.search(73));
-console.log(grades.search(78.2));
-console.log(grades.search(90));
+    console.log(grades.search(73));
+    console.log(grades.search(78.2));
+    console.log(grades.search(90));
 
-/*
-    >> Output
-    { status: true, node: { min: 70, max: 74.9, value: 'B' } }
-    { status: true, node: { min: 75, max: 79.9, value: 'B+' } }
-    { status: true, node: { min: 80, max: 100, value: 'A' } }
-*/
+    /*
+        >> Output
+        { status: true, node: { min: 70, max: 74.9, value: 'B' } }
+        { status: true, node: { min: 75, max: 79.9, value: 'B+' } }
+        { status: true, node: { min: 80, max: 100, value: 'A' } }
+    */
 
 ```
 
 ## Installation
 
 ``` bash
-$ npm install ibst --save
+    $ npm install ibst --save
 ```
 
 # API
 
+## ibst( [nodes] )
+* `node` { Object | Array }
+
+## Class: ibst
+
+Create a new ibst tree by instantiating the ibst class
+
+```js
+    var ibst = require("ibst");
+    var grades = new ibst();
+```
+
+You can create a tree with one node
+
+```js
+    var ibst = require("ibst");
+    var grades = new ibst({min:75,max:79.9,value:"B+"});
+```
+
+or with multiple
+
+```js
+    var ibst = require("ibst");
+    var grades = new ibst([
+                            {min:75,max:79.9,value:"B+"},
+                            {min:80,max:100,value:"A"},
+                            {min:70,max:74.9,value:"B"}]); 
+```
+
+### Properties
+
+* `node` The node / array of nodes passed in
+    
+    * `min` {integer} The minimum range of the node
+    * `max` {integer} The maximum range of the node
+    * `value` {Object} The value of the node
+
+### Methods
+
+* `insert( [nodes] )` Insert a node / nodes into a tree
+
+    * Insert one node
+    ```js
+        var ibst = require("ibst");
+
+        var grades = new ibst();   
+        var result = grades.insert({min:80,max:100,value:"A"});
+
+        console.log(result);
+
+        /*
+            >> Output
+            { status: true }
+        */         
+    ```
+    * Insert many nodes
+    ```js
+        var ibst = require("ibst");
+
+        var grades = new ibst();   
+        var result = grades.insert([
+                                    {min:80,max:100,value:"A"},
+                                    {min:70,max:74.9,value:"B"}
+                                    ]);  
+        console.log(result);
+        
+        /*
+            >> Output
+            { status: true }
+        */ 
+    ```
+    * Insert empty node ( empty object | array )
+    ```js
+        var ibst = require("ibst");
+
+        var grades = new ibst();   
+        var result = grades.insert({});
+
+        console.log(result);
+
+        /*
+            >> Output
+            { status: false }
+        */         
+    ```    
+* `search(key)` Search for a node
+    ```js
+        var ibst = require("ibst");
+
+        var grades = new ibst([
+                                {min:80,max:100,value:"A"},
+                                {min:75,max:79.9,value:"B+"},
+                                {min:70,max:74.9,value:"B"}]);  
+
+        var result = grades.search(73); 
+
+        console.log(result);
+
+        /*
+            >> Output
+            { status: true, node: { min: 70, max: 74.9, value: 'B' } }
+        */    
+    ```
+* `count()` Count the number of nodes in a tree
+    ```js
+        var ibst = require("ibst");
+
+        var grades = new ibst([
+                                {min:80,max:100,value:"A"},
+                                {min:75,max:79.9,value:"B+"},
+                                {min:70,max:74.9,value:"B"}]);  
+
+        var result = grades.count(); 
+
+        console.log(result);
+
+        /*
+            >> Output
+            3
+        */    
+    ```
 
 ## Assumptions & Notes
 - There are no overlapping intervals e.g [ 1 - 3, 2 - 5 ]
