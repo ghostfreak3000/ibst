@@ -3,6 +3,7 @@
 Interval binary search tree
 
 [![NPM Version](https://img.shields.io/npm/v/ibst.svg)](https://www.npmjs.com/package/ibst)
+[![NPM Downloads](https://img.shields.io/npm/dt/ibst.svg)](https://www.npmjs.com/package/ibst)
 [![Linux Build](https://img.shields.io/travis/ghostfreak3000/ibst/master.svg?label=linux)](https://travis-ci.org/ghostfreak3000/ibst)
 [![Windows Build](https://img.shields.io/appveyor/ci/ghostfreak3000/ibst/master.svg?label=windows)](https://ci.appveyor.com/project/ghostfreak3000/ibst)
 
