@@ -14,7 +14,7 @@ describe("ibst",function(){
         it("search function",function(){
             var grades = new ibst();
             expect(grades.search).to.be.a('function');
-        });
+        });       
     });    
     context("count",function(){
         it("counts properly",function(){
@@ -22,7 +22,9 @@ describe("ibst",function(){
             expect(grades.count()).to.equal(1);
             grades.insert({min:80,max:100,value:"A"});
             expect(grades.count()).to.equal(2);
-        })  
+            grades.insert({min:70,max:74.9,value:{__count__:null,b:{__count__:null,c:{__count__:null}}}});
+            expect(grades.count()).to.equal(3);
+        });  
     });
     context("initialize",function(){
         it("object",function(){

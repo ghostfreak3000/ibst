@@ -1,4 +1,5 @@
 var node = require("./lib/node");
+var clean = require("./lib/cleanStringify");
 var ibst = function(nodes){        
     this.root = null;        
     this.insert = function(nodes){
@@ -28,7 +29,7 @@ var ibst = function(nodes){
         }        
     }
     this.count = function(){
-        var test = JSON.stringify(this);
+        var test = clean.stringify(this);
         var count = (test.match(/__count__/g) || []).length;
         return count;
     }
