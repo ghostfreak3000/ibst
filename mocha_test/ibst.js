@@ -15,6 +15,10 @@ describe("ibst",function(){
             var grades = new ibst();
             expect(grades.search).to.be.a('function');
         });       
+        it.only("height function",function(){
+            var grades = new ibst();
+            expect(grades.height).to.be.a('function');
+        });         
     });    
     context("count",function(){
         it("counts properly",function(){
@@ -26,6 +30,18 @@ describe("ibst",function(){
             expect(grades.count()).to.equal(3);
         });  
     });
+    context("height",function(){
+        it.only("counts properly",function(){
+            var grades = new ibst({min:80,max:89.9,value:"A"});            
+            expect(grades.height()).to.equal(0);            
+            grades.insert({min:75,max:79.9,value:"B+"});
+            expect(grades.height()).to.equal(1);
+            grades.insert({min:90,max:99.9,value:"A+"});
+            expect(grades.height()).to.equal(1);
+            grades.insert({min:70,max:74.9,value:"B"});
+            expect(grades.height()).to.equal(2);
+        })
+    });    
     context("initialize",function(){
         it("object",function(){
             var grades = new ibst({min:75,max:79.9,value:"B+"});            

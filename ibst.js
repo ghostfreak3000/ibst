@@ -14,6 +14,7 @@ var ibst = function(nodes){
                 if(this.root){
                     return this.root.insert(nodes);
                 }else{
+                    nodes["__height__"] = 0;
                     this.root = new node(nodes);
                     return {status:true};
                 }                  
@@ -33,6 +34,21 @@ var ibst = function(nodes){
         var count = (test.match(/__count__/g) || []).length;
         return count;
     }
+    this.height = function(){        
+        var string = clean.stringify(this);
+        var regex = /"__height__":(\d+)/gi; 
+        var match = regex.exec(string);        
+        var heights = [];
+
+        while (match != null) {
+            heights.push(match[1]);
+            match = regex.exec(string);
+        }
+
+        var height = Math.max.apply(null,heights);
+
+        return height;
+    }                
     this.search = function(query){
         return this.root.search(query);
     }
